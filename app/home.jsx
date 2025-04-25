@@ -8,13 +8,16 @@ const HomeScreen = () => {
 
   useEffect(() => {
     fetch('https://equran.id/api/surat')
-      .then((response) => response.json())
-      .then((data) => setSurahs(data))
-      .catch((error) => console.error('Error fetching surah:', error));
+    .then((response) => response.json())
+    .then((data) => setSurahs(data))
+    .catch((error) => console.error('Error fetching surah:', error));
   }, []);
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.card} onPress={() => router.push(`/surah/${item.nomor}`)}>
+  const renderItem = ({ item}) => (
+    <TouchableOpacity style={styles.card}
+      onPress={() => router.push(`/surah/${item.nomor}`)}
+      activeOpacity={0.7}
+      >
       <Text style={styles.arabic}>{item.nama}</Text>
       <Text style={styles.name}>{item.nama_latin}</Text>
       <Text style={styles.name}>{item.terjemahan}</Text>
@@ -23,10 +26,10 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('@/assets/images/sky-background.png')} style={styles.backgroundImage} />
+      <Image source={require('../assets/images/sky-background.png')} style={styles.backgroundImage} />
       <View style={styles.overlay}>
-        <Image source={require('@/assets/images/alquran.png')} style={styles.quranImage} />
-        <Text style={styles.title}>بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</Text>
+        <Image source={require('../assets/images/alquran.png')} style={styles.quranImage} />
+        <Text style={styles.title}> بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ </Text>
         <FlatList
           data={surahs}
           keyExtractor={(item) => item.nomor.toString()}
@@ -41,7 +44,7 @@ const HomeScreen = () => {
 
 const screenWidth = Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
   container: {
     flex: 1,
     position: 'relative',
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: 'hsla(235, 85.90%, 13.90%, 0.90)',
+    backgroundColor: 'hsla(235,85.90%,13.90%,0.90)',
     borderRadius: 16,
     padding: 16,
     margin: 10,
