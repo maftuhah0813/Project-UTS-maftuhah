@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: 'hsla(235, 73.10%, 13.10%, 0.10)',
+    backgroundColor: 'hsla(235, 85.90%, 13.90%, 0.90)',
     borderRadius: 16,
     padding: 16,
     margin: 10,
