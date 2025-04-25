@@ -83,7 +83,7 @@ const styles = StyleSheet.create ({
     borderRadius: 16,
     padding: 16,
     margin: 10,
-    flex: 1,
+    flex: 0,
     alignItems: 'center',
   },
   arabic: {

@@ -1,17 +1,16 @@
-// app/detail/[id].js
-import { View, Text, ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import {View, Text, ImageBackground, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 
-export default function DetailSurah() {
-  const { id } = useLocalSearchParams(); // id dari surah
+export default function DetailSurah(){
+  const { id } = useLocalSearchParams();
   const [surah, setSurah] = useState(null);
 
   useEffect(() => {
     fetch(`https://equran.id/api/v2/surat/${id}`)
-      .then(res => res.json())
-      .then(data => setSurah(data.data))
-      .catch(err => console.error(err));
+    .then(res => res.json())
+    .then(data => setSurah(data.data))
+    .catch(err => console.error(err));
   }, [id]);
 
   if (!surah) return null;
@@ -43,7 +42,7 @@ export default function DetailSurah() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
   background: {
     flex: 1,
     width: '100%',
@@ -60,20 +59,20 @@ const styles = StyleSheet.create({
   surahName: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'blue'
   },
   arabicName: {
-    fontSize: 30,
-    color: 'white',
+    fontSize:30,
+    color: 'blue',
     fontFamily: 'Amiri',
   },
   info: {
     fontSize: 14,
-    color: 'white',
+    color: 'blue',
     marginTop: 4,
   },
   ayahBox: {
-    backgroundColor: 'rgba(12, 11, 94, 0.9)',
+    backgroundColor: 'rgba(18, 8, 151, 0.9)',
     borderRadius: 12,
     padding: 15,
     marginBottom: 10,
@@ -101,6 +100,6 @@ const styles = StyleSheet.create({
   translation: {
     fontSize: 14,
     color: 'white',
-    fontStyle: 'italic',
+    fontStyle: 'italic'
   },
 });
